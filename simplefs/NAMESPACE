@@ -2,6 +2,7 @@ useDynLib(simplefs)
 
 export( exists)
 export( stat)
+export( lstat)
 export( fstatat)
 export( AT_EMPTY_PATH)
 export( AT_NO_AUTOMOUNT)
