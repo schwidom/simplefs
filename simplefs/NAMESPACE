@@ -1,0 +1,12 @@
+useDynLib(simplefs)
+
+export( exists)
+export( stat)
+export( fstatat)
+export( AT_EMPTY_PATH)
+export( AT_NO_AUTOMOUNT)
+export( AT_SYMLINK_NOFOLLOW)
+
+export( rename)
+export( symlink)
+

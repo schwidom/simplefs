@@ -1,0 +1,10 @@
+
+statDot <- simplefs::stat(".")[[1]]
+
+print( statDot)
+
+stopifnot( 0 == statDot$returnValue)
+stopifnot( "." == statDot$filename)
+
+stopifnot( 0 != ( as.octmode(statDot$mode) & "0040000")) # S_IFDIR | man 2 stat
+
