@@ -1,5 +1,7 @@
 
-exists <- function(filenames)
+exists <- function( filenames, flags = 0)
 {
- .Call("simplefs_exists", filenames, PACKAGE="simplefs");
+ as.logical( lapply( fstatat( filenames, flags), function( res) {
+  res$returnValue == 0
+ }))
 }
