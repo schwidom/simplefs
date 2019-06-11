@@ -18,3 +18,21 @@ fields <- simplefs::readLinesBySep( fileB)
 stopifnot( "ab" == fields[[1]])
 stopifnot( "cd" == fields[[2]])
 
+conA <- file( fileA, "rb")
+
+fields <- simplefs::readLinesBySep( conA)
+
+stopifnot( "ab" == fields[[1]])
+stopifnot( "cd" == fields[[2]])
+
+close(conA)
+
+conB <- file( fileB, "rb")
+
+fields <- simplefs::readLinesBySep( conB)
+
+stopifnot( "ab" == fields[[1]])
+stopifnot( "cd" == fields[[2]])
+
+close(conB)
+

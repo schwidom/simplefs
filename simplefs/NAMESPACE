@@ -10,7 +10,7 @@ export( AT_SYMLINK_NOFOLLOW)
 
 export( rename)
 export( symlink)
-export( unlink)
+export( funlink)
 
 export( readLinesBySep)
 

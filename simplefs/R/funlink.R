@@ -1,5 +1,5 @@
 
-unlink <- function(filenames)
+funlink <- function(filenames)
 {
  .Call("simplefs_unlink", filenames, PACKAGE="simplefs");
 }
