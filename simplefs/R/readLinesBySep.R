@@ -1,4 +1,4 @@
-readLinesBySep <- function( filename, sep = 0, appendSep = FALSE)
+readLinesBySep <- function( filename, sep = 0)
 {
 
  stopifnot( 1 == length( filename))
@@ -9,7 +9,7 @@ readLinesBySep <- function( filename, sep = 0, appendSep = FALSE)
 
  bon <- readBin(con = filename, what='raw', n = fileinfo$size)
 
- if( appendSep)
+ if( bon[fileinfo$size] != sep)
  {
   bon <- c( bon, sep)
  }
