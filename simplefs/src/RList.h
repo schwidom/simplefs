@@ -9,6 +9,13 @@ public:
 
  RList(int count);
 
+ ~RList();
+
+ RList(const RList&) = delete;
+ RList(RList&&) = delete;
+ RList& operator=(const RList&) = delete;
+ RList& operator=(RList&&) = delete;
+
  SEXP get();
 
  void append( SEXP sexp);

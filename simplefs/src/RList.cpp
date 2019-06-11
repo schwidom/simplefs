@@ -2,8 +2,13 @@
 
 RList::RList(int count) 
  : m_count{count}
- , m_elementValues{ allocVector(VECSXP, count)}
+ , m_elementValues{ PROTECT( allocVector(VECSXP, count))}
 {
+}
+
+RList::~RList() 
+{
+ UNPROTECT(1);
 }
 
 void RList::append(SEXP sexp)

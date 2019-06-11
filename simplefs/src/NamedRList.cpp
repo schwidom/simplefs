@@ -2,9 +2,14 @@
 
 NamedRList::NamedRList(int count) 
  : m_count{count}
- , m_elementNames{ allocVector(VECSXP, count)} // TODO : STRSXP
- , m_elementValues{ allocVector(VECSXP, count)}
+ , m_elementNames{ PROTECT( allocVector(VECSXP, count))} // TODO : STRSXP
+ , m_elementValues{ PROTECT( allocVector(VECSXP, count))}
 {
+}
+
+NamedRList::~NamedRList() 
+{
+ UNPROTECT(2);
 }
 
 void NamedRList::append(char const * name, SEXP sexp)
