@@ -12,3 +12,7 @@ simplefs::rename( file.path( TMPDIR, c( "a.txt", "b.txt")), file.path( TMPDIR, c
 stopifnot( !all( simplefs::exists( file.path( TMPDIR, c( "a.txt", "b.txt")))))
 stopifnot( all( simplefs::exists( file.path( TMPDIR, c( "c.txt", "d.txt")))))
 
+simplefs::unlink( file.path( TMPDIR, c( "c.txt", "d.txt")))
+
+stopifnot( !all( simplefs::exists( file.path( TMPDIR, c( "c.txt", "d.txt")))))
+
