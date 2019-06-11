@@ -1,6 +1,6 @@
 useDynLib(simplefs)
 
-export( exists)
+export( fexists)
 export( stat)
 export( lstat)
 export( fstatat)
@@ -11,4 +11,6 @@ export( AT_SYMLINK_NOFOLLOW)
 export( rename)
 export( symlink)
 export( unlink)
+
+export( readLinesBySep)
 
