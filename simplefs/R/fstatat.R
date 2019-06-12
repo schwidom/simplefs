@@ -5,6 +5,14 @@ AT_EMPTY_PATH <- as.hexmode(0)
 AT_NO_AUTOMOUNT <- as.hexmode( 0)
 AT_SYMLINK_NOFOLLOW <- as.hexmode( 0)
 
+S_IFSOCK <- as.octmode( 0)
+S_IFLNK <- as.octmode( 0)
+S_IFREG <- as.octmode( 0)
+S_IFBLK <- as.octmode( 0)
+S_IFDIR <- as.octmode( 0)
+S_IFCHR <- as.octmode( 0)
+S_IFIFO <- as.octmode( 0)
+
 AT_ALL <- as.hexmode( 0)
 
 fstatat <- function(filenames, flags = 0L)

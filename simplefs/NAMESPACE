@@ -1,12 +1,23 @@
 useDynLib(simplefs)
 
-export( fexists)
 export( stat)
 export( lstat)
 export( fstatat)
+
 export( AT_EMPTY_PATH)
 export( AT_NO_AUTOMOUNT)
 export( AT_SYMLINK_NOFOLLOW)
+
+export( S_IFSOCK)
+export( S_IFLNK)
+export( S_IFREG)
+export( S_IFBLK)
+export( S_IFDIR)
+export( S_IFCHR)
+export( S_IFIFO)
+
+export( fexists)
+export( fisdir)
 
 export( rename)
 export( symlink)
@@ -16,4 +27,7 @@ export( readLinesBySep)
 
 S3method(fexists, character)
 S3method(fexists, stat)
+
+S3method(fisdir, character)
+S3method(fisdir, stat)
 

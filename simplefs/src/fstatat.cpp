@@ -21,6 +21,14 @@ extern "C" SEXP simplefs_get_AT_EMPTY_PATH() { SEXP ret = PROTECT( allocVector( 
 extern "C" SEXP simplefs_get_AT_NO_AUTOMOUNT() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = AT_NO_AUTOMOUNT; UNPROTECT( 1); return ret;}
 extern "C" SEXP simplefs_get_AT_SYMLINK_NOFOLLOW() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = AT_SYMLINK_NOFOLLOW; UNPROTECT( 1); return ret;}
 
+extern "C" SEXP simplefs_get_S_IFSOCK() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = S_IFSOCK; UNPROTECT( 1); return ret;}
+extern "C" SEXP simplefs_get_S_IFLNK() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = S_IFLNK; UNPROTECT( 1); return ret;}
+extern "C" SEXP simplefs_get_S_IFREG() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = S_IFREG; UNPROTECT( 1); return ret;}
+extern "C" SEXP simplefs_get_S_IFBLK() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = S_IFBLK; UNPROTECT( 1); return ret;}
+extern "C" SEXP simplefs_get_S_IFDIR() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = S_IFDIR; UNPROTECT( 1); return ret;}
+extern "C" SEXP simplefs_get_S_IFCHR() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = S_IFCHR; UNPROTECT( 1); return ret;}
+extern "C" SEXP simplefs_get_S_IFIFO() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = S_IFIFO; UNPROTECT( 1); return ret;}
+
 extern "C" SEXP simplefs_fstatat(SEXP filenames, SEXP flags)
 {
  
