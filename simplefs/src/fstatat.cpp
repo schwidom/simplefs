@@ -17,6 +17,10 @@ extern "C" {
 #include <fcntl.h>           /* Definition of AT_* constants */
 }
 
+extern "C" SEXP simplefs_get_AT_EMPTY_PATH() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = AT_EMPTY_PATH; UNPROTECT( 1); return ret;}
+extern "C" SEXP simplefs_get_AT_NO_AUTOMOUNT() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = AT_NO_AUTOMOUNT; UNPROTECT( 1); return ret;}
+extern "C" SEXP simplefs_get_AT_SYMLINK_NOFOLLOW() { SEXP ret = PROTECT( allocVector( INTSXP, 1)); INTEGER(ret)[0] = AT_SYMLINK_NOFOLLOW; UNPROTECT( 1); return ret;}
+
 extern "C" SEXP simplefs_fstatat(SEXP filenames, SEXP flags)
 {
  
