@@ -18,6 +18,7 @@ export( S_IFIFO)
 
 export( fexists)
 export( fisdir)
+export( fis)
 
 export( rename)
 export( symlink)
@@ -30,4 +31,7 @@ S3method(fexists, stat)
 
 S3method(fisdir, character)
 S3method(fisdir, stat)
+
+S3method(fis, character)
+S3method(fis, stat)
 
