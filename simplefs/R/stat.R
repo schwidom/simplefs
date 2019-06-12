@@ -1,5 +1,7 @@
 
 stat <- function(filenames)
 {
- .Call("simplefs_stat", filenames, PACKAGE="simplefs");
+ ret <- .Call("simplefs_stat", filenames, PACKAGE="simplefs");
+ class(ret) <- c( "stat", class(ret))
+ ret
 }

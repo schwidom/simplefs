@@ -12,5 +12,9 @@ fstatat <- function(filenames, flags = 0L)
 
  stopifnot( AT_ALL == (AT_ALL | flags))
 
- .Call("simplefs_fstatat", as.character( filenames), as.integer( flags), PACKAGE="simplefs");
+ ret <- .Call("simplefs_fstatat", as.character( filenames), as.integer( flags), PACKAGE="simplefs");
+
+ class(ret) <- c( "stat", class(ret))
+
+ ret
 }

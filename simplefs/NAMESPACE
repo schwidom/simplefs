@@ -14,3 +14,6 @@ export( funlink)
 
 export( readLinesBySep)
 
+S3method(fexists, character)
+S3method(fexists, stat)
+
