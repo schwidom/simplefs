@@ -18,6 +18,7 @@ export( S_IFIFO)
 
 export( fexists)
 export( fisdir)
+export( fisfile)
 export( fis)
 
 export( rename)
@@ -28,9 +29,6 @@ export( readLinesBySep)
 
 S3method(fexists, character)
 S3method(fexists, stat)
-
-S3method(fisdir, character)
-S3method(fisdir, stat)
 
 S3method(fis, character)
 S3method(fis, stat)
