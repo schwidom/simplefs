@@ -11,3 +11,8 @@ In this package no path name modification takes place except I have to rely on a
 
 See the tilde discussion on [r-help](https://stat.ethz.ch/pipermail/r-help/2019-June/thread.html#462876) and [r-devel](https://stat.ethz.ch/pipermail/r-devel/2019-June/thread.html#77961).
 
+Install the package by cloning the repo and running make
+- git clone https://github.com/schwidom/simplefs
+- cd simplefs
+- make
+
