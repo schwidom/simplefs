@@ -1,6 +1,5 @@
 \name{readLinesBySep}
 \alias{readLinesBySep}
-\docType{package}
 \title{Read Lines By Separator}
 \usage{
 readLinesBySep( con_insecure, sep = 0)
