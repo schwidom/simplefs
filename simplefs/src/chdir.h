@@ -3,6 +3,6 @@
 #include <R.h>
 #include <Rinternals.h>
 
-extern "C" SEXP simplefs_unlink(SEXP filenames);
+extern "C" SEXP simplefs_chdir(SEXP filenames);
 
 

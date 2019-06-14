@@ -24,6 +24,9 @@ export( fis)
 export( rename)
 export( symlink)
 export( funlink)
+export( ftouch)
+
+export( chdir)
 
 export( readLinesBySep)
 

@@ -10,6 +10,7 @@
 extern "C" {
 // int unlink(const char *pathname);
 #include <unistd.h>
+#include <errno.h>
 }
 
 extern "C" SEXP simplefs_unlink(SEXP filenames)
@@ -21,8 +22,11 @@ extern "C" SEXP simplefs_unlink(SEXP filenames)
  {
   SEXP filename = STRING_ELT(filenames, i);
   char const * c_filename = CHAR( filename);
+
   int res = unlink( c_filename);
   
+  if( 0 != res) { res = errno; }
+
   int numberOfResultFields = 2;
 
   NamedRList namedRList( numberOfResultFields);

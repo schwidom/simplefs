@@ -10,6 +10,7 @@
 extern "C" {
 // int symlink(const char *target, const char *linkpath);
 #include <unistd.h>
+#include <errno.h>
 }
 
 extern "C" SEXP simplefs_symlink(SEXP filenamesTarget, SEXP filenamesLinkPath)
@@ -33,6 +34,8 @@ extern "C" SEXP simplefs_symlink(SEXP filenamesTarget, SEXP filenamesLinkPath)
   char const * c_filenameLinkPath = CHAR( filenameLinkPath);
 
   int res = symlink( c_filenameTarget, c_filenameLinkPath);
+
+  if( 0 != res) { res = errno; }
 
   int numberOfResultFields = 3;
 

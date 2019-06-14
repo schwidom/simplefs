@@ -1,23 +1,19 @@
 
-#include "lstat.h"
+#include "chdir.h"
 
 #include "RList.h"
 #include "NamedRList.h"
-
-#include "createStatResult.h"
 
 #include <iostream>
 #include <functional>
 
 extern "C" {
-// int lstat(const char *pathname, struct stat *buf);
-#include <sys/types.h>
-#include <sys/stat.h>
+// int chdir(const char *path);
 #include <unistd.h>
 #include <errno.h>
 }
 
-extern "C" SEXP simplefs_lstat(SEXP filenames)
+extern "C" SEXP simplefs_chdir(SEXP filenames)
 {
  
  RList ret(length(filenames));
@@ -26,12 +22,18 @@ extern "C" SEXP simplefs_lstat(SEXP filenames)
  {
   SEXP filename = STRING_ELT(filenames, i);
   char const * c_filename = CHAR( filename);
-  struct stat buf;
-  int res = lstat( c_filename, &buf);
+  int res = chdir( c_filename);
   
   if( 0 != res) { res = errno; }
 
-  ret.append( createStatResult( buf, res, c_filename));
+  int numberOfResultFields = 2;
+
+  NamedRList namedRList( numberOfResultFields);
+
+  namedRList.append( "filename", c_filename);
+  namedRList.append( "returnValue", res);
+
+  ret.append(namedRList.get());
  }
 
  return ret.get();

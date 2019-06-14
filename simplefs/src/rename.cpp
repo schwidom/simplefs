@@ -10,6 +10,7 @@
 extern "C" {
 // int rename(const char *oldpath, const char *newpath);
 #include <stdio.h>
+#include <errno.h>
 }
 
 extern "C" SEXP simplefs_rename(SEXP filenamesFrom, SEXP filenamesTo)
@@ -33,6 +34,8 @@ extern "C" SEXP simplefs_rename(SEXP filenamesFrom, SEXP filenamesTo)
   char const * c_filenameTo = CHAR( filenameTo);
 
   int res = rename( c_filenameFrom, c_filenameTo);
+
+  if( 0 != res) { res = errno; }
 
   int numberOfResultFields = 3;
 

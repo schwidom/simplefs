@@ -14,6 +14,7 @@ extern "C" {
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <errno.h>
 }
 
 extern "C" SEXP simplefs_stat(SEXP filenames)
@@ -28,6 +29,8 @@ extern "C" SEXP simplefs_stat(SEXP filenames)
   struct stat buf;
   int res = stat( c_filename, &buf);
   
+  if( 0 != res) { res = errno; }
+
   ret.append( createStatResult( buf, res, c_filename));
  }
 
