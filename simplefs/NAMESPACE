@@ -30,6 +30,8 @@ export( chdir)
 
 export( readLinesBySep)
 
+export( readFileRaw)
+
 S3method(fexists, character)
 S3method(fexists, stat)
 

@@ -1,15 +1,19 @@
-readLinesBySep <- function( con_insecure, sep = 0)
+readLinesBySep <- function( con, sep = 0)
 {
 
- stopifnot( 1 == length( con_insecure))
+ stopifnot( 1 == length( con))
 
- if( is.character(con_insecure))
+ if( is.character(con))
  {
-  fileinfo <- stat(con_insecure)[[1]]
+  # fileinfo <- stat(con)[[1]]
+  #
+  # stopifnot( 0 == fileinfo$returnValue)
+  #
+  # bon <- readBin(con = con, what='raw', n = fileinfo$size)
 
-  stopifnot( 0 == fileinfo$returnValue)
-
-  bon <- readBin(con = con_insecure, what='raw', n = fileinfo$size)
+  rodFile <- readFileRaw(con)[[1]]
+  stopifnot( 0 == rodFile$returnValue)
+  bon <- rodFile$result
  } else
  {
   startSizeToRead <- 10000
@@ -19,7 +23,7 @@ readLinesBySep <- function( con_insecure, sep = 0)
 
   while(TRUE)
   {
-   bonPart <- readBin(con = con_insecure, what='raw', n = startSizeToRead)
+   bonPart <- readBin(con = con, what='raw', n = startSizeToRead)
    if( 0==length( bonPart)) break;
    bon <- c( bon, bonPart)
    if( startSizeToRead < maxSizeToRead) { startSizeToRead <- 2 * startSizeToRead }

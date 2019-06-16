@@ -2,10 +2,10 @@
 \alias{readLinesBySep}
 \title{Read Lines By Separator}
 \usage{
-readLinesBySep( con_insecure, sep = 0)
+readLinesBySep( con, sep = 0)
 }
 \arguments{
-\item{con_insecure}{A filename or connection. If it is a filename then it follows the R file naming conventions and has the tilde problem. This behaviour is subject to change.}
+\item{con}{A filename or connection.}
 \item{sep}{The separator is a raw or integer value from 0 to 255 with default value 0.}
 }
 \value{

@@ -2,7 +2,7 @@ Package: simplefs
 Title: File and Directory Accessing Tools for linux with strictly omitted filename modification
 Author: Frank Schwidom <schwidom@gmx.net>
 Maintainer: Frank Schwidom <schwidom@gmx.net>
-Version: 0.2
+Version: 0.3
 Authors@R: c(person("Frank", "Schwidom", email = "schwidom@gmx.net", role=c("aut", "cph", "cre")))
 Description: File and Directory Accessing Tools for linux with strictly omitted filename modification
 Depends: R (>= 3.1)
