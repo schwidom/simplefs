@@ -33,6 +33,10 @@ export( readLinesBySep)
 export( readFileRaw)
 export( writeFileRaw)
 
+export( fbasename_position)
+export( fbasename)
+export( 'fbasename<-')
+
 S3method(fexists, character)
 S3method(fexists, stat)
 
