@@ -3,18 +3,26 @@ bashquote <- function( stringContents)
 
  as.character( lapply( stringContents, function( stringContent) {
 
+  isPrintableChar <- function( rawValue)
+  {
+   0x20 <= rawValue & rawValue <= 0x7e
+  }
+
   rawContent <- charToRaw( stringContent)
-  rawContentAsciiMask <- rawContent < 0x7f
+  rawContentPrintableMask <- isPrintableChar( rawContent)
   rawContentSingleQuoteMask <- rawContent == charToRaw( "'")
-  rawContentAsciiMaskWithoutQuotes <- rawContentAsciiMask & ! rawContentSingleQuoteMask
+  rawContentMetaMask <- rawContent == charToRaw( "\\")
+
+  rawContentDirectlyPrintableMask <- rawContentPrintableMask & !rawContentSingleQuoteMask & !rawContentMetaMask
 
   stringResult <- character( length(rawContent))
 
-  stringResult[rawContentAsciiMaskWithoutQuotes] <- as.character( lapply( rawContent[rawContentAsciiMaskWithoutQuotes], rawToChar))
+  stringResult[rawContentDirectlyPrintableMask] <- as.character( lapply( rawContent[rawContentDirectlyPrintableMask], rawToChar))
 
-  stringResult[!rawContentAsciiMask] <- sprintf( "\\x%x", as.integer( rawContent[!rawContentAsciiMask]))
+  stringResult[!rawContentPrintableMask] <- sprintf( "\\x%x", as.integer( rawContent[!rawContentPrintableMask]))
 
   stringResult[rawContentSingleQuoteMask] <- "\\'"
+  stringResult[rawContentMetaMask] <- "\\\\"
 
   paste( sep=''
   , '$\''
