@@ -19,7 +19,7 @@ extern "C" SEXP simplefs_writeFileRaw(SEXP filenames, SEXP listOfRawVectors)
 
  if( length( filenames) != length( listOfRawVectors))
  {
-  error_return( "length of filenamesFrom differs from filenamesTo");
+  error_return( "length of filenames differs from listOfRawVectors");
  }
 
  RList ret(length(filenames));

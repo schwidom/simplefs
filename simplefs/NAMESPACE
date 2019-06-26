@@ -37,6 +37,8 @@ export( fbasename_position)
 export( fbasename)
 export( 'fbasename<-')
 
+export(bashquote)
+
 S3method(fexists, character)
 S3method(fexists, stat)
 
